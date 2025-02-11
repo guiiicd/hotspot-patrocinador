@@ -1,0 +1,103 @@
+# Este arquivo contém mensagens de erro que são exibidas para o usuário, quando o login http/https
+# é utilizado.
+# Essas mensagens podem ser alteradas para tornar a interface mais amigável, incluindo
+# traduções para diferentes idiomas.
+#
+# Variáveis podem ser usadas aqui também. As variáveis mais frequentemente usadas são:
+#	$(error-orig)	- mensagem de erro original do hotspot
+#	$(ip)		- endereço IP do cliente
+#	$(username)	- nome de usuário do cliente tentando fazer login
+
+# internal-error
+# Isso nunca deveria acontecer. Se acontecer, a página de erro será exibida
+# mostrando esta mensagem de erro (error-orig irá descrever o que aconteceu)
+
+internal-error = erro interno ($(error-orig))
+
+# config-error
+# Isso nunca deveria acontecer se o hotspot estiver configurado corretamente.
+
+config-error = erro de configuração ($(error-orig))
+
+# not-logged-in
+# Isso acontecerá se uma página de status ou logout for solicitada por um usuário
+# que na verdade não está logado.
+
+not-logged-in = você não está logado (IP $(ip))
+
+# ippool-empty
+# O endereço IP para o usuário deve ser atribuído a partir do pool de IP, mas não há mais
+# endereços disponíveis nesse pool
+
+ippool-empty = não foi possível atribuir endereço IP - não há mais endereços disponíveis no pool
+
+# shutting-down
+# Quando o serviço é desligado, novos clientes não são aceitos.
+
+shutting-down = o serviço do hotspot está sendo desligado
+
+# user-session-limit
+# Se o perfil do usuário tem um limite de usuários compartilhados, essa mensagem de erro será exibida
+# após atingir esse limite.
+
+user-session-limit = não há mais sessões permitidas para o usuário $(username)
+
+# license-session-limit
+# Dependendo da licença, o número de clientes ativos no hotspot é limitado
+# a um ou outro valor. Se esse limite for atingido, a seguinte mensagem de erro será exibida.
+
+license-session-limit = limite de sessão alcançado ($(error-orig))
+
+# wrong-mac-username
+# Se o nome de usuário parecer com um endereço MAC (12:34:56:78:9a:bc), mas não for
+# o endereço MAC deste cliente, o login será rejeitado.
+
+wrong-mac-username = nome de usuário inválido ($(username)): este endereço MAC não é seu
+
+# chap-missing
+# Se o método de login http-chap for usado, mas o programa hotspot não receber
+# a senha criptografada de volta, esta mensagem de erro será exibida.
+# Possíveis razões para falha:
+#	- JavaScript não está habilitado no navegador;
+#	- a página login.html não está válida;
+#	- o valor de desafio expirou no servidor (mais de 1h de inatividade);
+#	- o método de login http-chap foi recentemente removido;
+# Se o JavaScript estiver habilitado e a página login.html estiver válida,
+# normalmente tentar fazer login novamente resolve o problema.
+
+chap-missing = o navegador não enviou a resposta ao desafio (tente novamente, habilite o JavaScript)
+
+# invalid-username
+# O caso mais geral de nome de usuário ou senha inválidos. Se o servidor RADIUS
+# enviou uma mensagem de erro com a mensagem Access-Reject, ela substituirá esta configuração.
+
+invalid-username = nome de usuário ou senha inválidos
+
+# invalid-mac
+# Usuários locais (no servidor hotspot) podem ser vinculados a um endereço MAC específico.
+# Se o login for tentado de um MAC diferente, essa mensagem de erro será exibida.
+
+invalid-mac = o usuário $(username) não pode fazer login a partir deste endereço MAC
+
+# uptime-limit, traffic-limit
+# Para usuários locais no hotspot, caso os limites sejam alcançados
+
+uptime-limit = o usuário $(username) atingiu o limite de tempo de conexão
+traffic-limit = o usuário $(username) atingiu o limite de tráfego
+
+# radius-timeout
+# O usuário foi autenticado pelo servidor RADIUS, mas não obteve resposta do servidor,
+# a seguinte mensagem de erro será exibida.
+
+radius-timeout = o servidor RADIUS não está respondendo
+
+# auth-in-progress
+# A autorização está em andamento. O cliente já fez uma solicitação de autorização
+# que ainda não foi completada.
+
+auth-in-progress = autorização em andamento, tente novamente mais tarde
+
+# radius-reply
+# O servidor Radius retornou uma mensagem de erro personalizada
+
+radius-reply = $(error-orig)

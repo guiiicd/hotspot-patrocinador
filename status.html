@@ -1,0 +1,71 @@
+<html>
+<head>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<title>Status - Global Informática</title> <!-- Título alterado para refletir o nome da empresa -->
+<link rel="stylesheet" href="css/style.css">
+<script>
+
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+	if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+	popup = open('$(link-advert)', 'hotspot_advert', '');
+	setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+</script>
+    
+</head>
+<body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
+    <div class="ie-fixMinHeight">
+        <div class="main">
+            <div class="wrap">
+                $(if login-by == 'trial')
+                    <h1>Olá, usuário de teste!</h1> <!-- Traduzido para português -->
+                $(elif login-by != 'mac')
+                    <h1>Olá, $(username)!</h1> <!-- Personalizado para mostrar o nome do usuário -->
+                $(endif)                 
+
+                <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                    <table>
+                        <tr><td>Endereço IP</td><td>$(ip)</td></tr> <!-- Traduzido para português -->
+                        <tr><td>Bytes enviados / recebidos</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr> <!-- Traduzido para português -->
+                    $(if session-time-left)
+                        <tr><td>Conectado / tempo restante</td><td>$(uptime) / $(session-time-left)</td></tr> <!-- Traduzido para português -->
+                    $(else)
+                        <tr><td>Conectado</td><td>$(uptime)</td></tr> <!-- Traduzido para português -->
+                    $(endif)
+                    $(if blocked == 'yes')
+                        <tr><td>Status</td><td>
+                    <a href="$(link-advert)" target="hotspot_advert">Publicidade necessária</a></td> <!-- Traduzido para português -->
+                        </tr>
+                    $(elif refresh-timeout)
+                        <tr><td>Atualização de status</td><td>$(refresh-timeout)</td></tr> <!-- Traduzido para português -->
+                    $(endif)
+                        </table>
+                    $(if login-by-mac != 'yes')
+                    <!-- Link do Gerenciador de Usuários. Se o gerenciador de usuários estiver em outro roteador, substitua $(hostname) pelo seu endereço -->
+                    <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+                    <!-- Fim do link do gerenciador de usuários -->
+                    <input type="submit" value="Desconectar"> <!-- Texto do botão alterado para português -->
+                    $(endif)
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta http-equiv="refresh" content="2; url=$(link-orig)" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <title>Global Informática - Publicidade</title>
+    <!-- Título alterado para refletir o nome da empresa -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      var popup = "";
+      function openOrig() {
+        if (window.focus) popup.focus();
+        location.href = unescape("$(link-orig-esc)");
+      }
+      function openAd() {
+        location.href = unescape("$(link-redirect-esc)");
+      }
+      function openAdvert() {
+        if (window.name != "hotspot_advert") {
+          popup = open("$(link-redirect)", "hotspot_advert", "");
+          setTimeout("openOrig()", 1000);
+          return;
+        }
+        setTimeout("openAd()", 1000);
+      }
+    </script>
+  </head>
+  <body onLoad="openAdvert()">
+    <div class="ie-fixMinHeight">
+      <div class="main">
+        <div class="wrap">
+          <!-- Título alterado para português -->
+          <h1>Publicidade</h1>
+          <!-- Traduzido para português -->
+
+          <!-- Mensagem de instrução traduzida para português -->
+          <p class="info">
+            Se nada acontecer, abra
+            <a href="$(link-redirect)" target="hotspot_advert">a propaganda</a>
+            manualmente.
+          </p>
+          <!-- Traduzido para português -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

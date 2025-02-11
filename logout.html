@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <title>Global Informática - Logout</title>
+    <!-- Título alterado para refletir o nome da empresa -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function openLogin() {
+        if (window.name != "hotspot_logout") return true;
+        open("$(link-login)", "_blank", "");
+        window.close();
+        return false;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="ie-fixMinHeight">
+      <div class="main">
+        <div class="wrap">
+          <!-- Mensagem de logout traduzida para português -->
+          <h1>Você acabou de sair!</h1>
+          <!-- Traduzido para português -->
+
+          <table>
+            <!-- Tabelas traduzidas para português -->
+            <tr>
+              <td>Nome de usuário</td>
+              <td>$(username)</td>
+            </tr>
+            <!-- Traduzido para português -->
+            <tr>
+              <td>Endereço IP</td>
+              <td>$(ip)</td>
+            </tr>
+            <!-- Traduzido para português -->
+            <tr>
+              <td>Endereço MAC</td>
+              <td>$(mac)</td>
+            </tr>
+            <!-- Traduzido para português -->
+            <tr>
+              <td>Tempo de sessão</td>
+              <td>$(uptime)</td>
+            </tr>
+            <!-- Traduzido para português -->
+            $(if session-time-left)
+            <tr>
+              <td>Tempo restante</td>
+              <td>$(session-time-left)</td>
+            </tr>
+            <!-- Traduzido para português -->
+            $(endif)
+            <tr>
+              <td>Bytes enviados / recebidos:</td>
+              <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+            </tr>
+            <!-- Traduzido para português -->
+          </table>
+
+          <!-- Botão de login traduzido para português -->
+          <form
+            action="$(link-login)"
+            name="login"
+            onSubmit="return openLogin()"
+          >
+            <input type="submit" value="Entrar" />
+            <!-- Traduzido para português -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

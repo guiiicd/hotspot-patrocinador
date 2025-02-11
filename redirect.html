@@ -1,0 +1,15 @@
+$(if http-status == 302)Redirecionamento do Hotspot$(endif)
+<!-- Traduzido para português -->
+$(if http-header == "Location")$(link-redirect)$(endif)
+
+<html>
+  <head>
+    <!-- Título alterado para refletir o nome da empresa -->
+    <title>Global Informática - Redirecionamento Hotspot</title>
+    <!-- Título alterado para refletir o nome da empresa -->
+    <meta http-equiv="refresh" content="0; url=$(link-redirect)" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+  </head>
+  <body></body>
+</html>
