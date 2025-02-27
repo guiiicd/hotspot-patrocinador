@@ -1,41 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt">
-  <!-- Alterado para português -->
+<html lang="pt-br">
+<head>
+    <meta charset="iso-8859-1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta id="refresh-meta" http-equiv="refresh" content="0; url=https://www.google1.com/"> <!-- Valor inicial -->
+    <title>EMPRESA - Redirecionamento</title>
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="2; url=$(link-redirect)" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="expires" content="-1" />
-    <title>Global Informática - Redirecionamento</title>
-    <!-- Título alterado para refletir o nome da empresa -->
-    <link rel="stylesheet" href="css/style.css" />
-    <script>
-      function startClock() {
-          $(if popup == 'true')
-          open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290,height=200');
-      $(endif)
-      location.href = unescape('$(link-redirect-esc)'); <!-- Redirecionamento após 2 segundos -->
-      }
+    <style type="text/css">
+        /* Estilos gerais */
+        textarea, input, select {
+            background-color: #FDFBFB;
+            border: 1px #BBBBBB solid;
+            padding: 2px;
+            margin: 1px;
+            font-size: 14px;
+            color: #808080;
+        }
+
+        body {
+            color: #737373;
+            font-size: 12px;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+        a, a:link, a:visited, a:active {
+            color: #AAAAAA;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        a:hover {
+            border-bottom: 1px dotted #c1c1c1;
+            color: #AAAAAA;
+        }
+
+        img {
+            border: none;
+        }
+
+        td {
+            font-size: 12px;
+            color: #7A7A7A;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function startClock() {
+            // Lista de sites para redirecionamento aleatório
+            var sites = [
+                "https://www.google1.com/",
+                "https://www.google2.com/",
+                "https://www.google3.com/"
+            ];
+
+            // Escolhe um site aleatório
+            var randomSite = sites[Math.floor(Math.random() * sites.length)];
+
+            // Atualiza a tag meta para o redirecionamento aleatório
+            var metaTag = document.getElementById("refresh-meta");
+            metaTag.setAttribute("content", "0; url=" + randomSite);
+        }
     </script>
-  </head>
-
-  <body onLoad="startClock()">
-    <div class="ie-fixMinHeight">
-      <div class="main">
-        <div class="wrap">
-          <!-- Mensagem de login traduzida -->
-          <h1>Você está logado</h1>
-          <!-- Traduzido para português -->
-
-          <!-- Instrução traduzida -->
-          <p class="info">
-            Se nada acontecer, clique <a href="$(link-redirect)">aqui</a>
-          </p>
-          <!-- Traduzido para português -->
-        </div>
-      </div>
-    </div>
-  </body>
+</head>
+<body onload="startClock()">
+    <table width="100%" height="100%">
+        <tr>
+            <td align="center" valign="middle">
+                Você está logado.
+                <br><br>
+                Se nada acontecer, clique <a href="https://www.google1.com/">aqui</a> para ser redirecionado manualmente.
+            </td>
+        </tr>
+    </table>
+</body>
 </html>

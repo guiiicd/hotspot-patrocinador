@@ -19,7 +19,7 @@ body {
 
 a {
 	/* Cor de destaque da empresa */
-	color: #ffa200; /* Cor principal da sua empresa */
+	color: #0F66EB; /* Cor principal da sua empresa */
 }
 
 input,label {
@@ -62,7 +62,7 @@ p::first-letter {
 }
 
 .logo {
-	max-width: 200px;
+	max-width: 300px;
 	display: block;
 	margin: 0 auto 30px auto;
 }
@@ -78,10 +78,16 @@ p::first-letter {
 h1 {
 	/* Cor de destaque para o título */
 	text-align: center;
-	color: #ffa200; /* Cor de destaque */
+	color: #0F66EB; /* Cor de destaque */
 	font-size: 24px!important;
 }
 
+/* .highlight {
+	color: red;
+	font-size: 24px!important; */
+	/* display: inline-block; */
+  /* } */
+  
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -182,7 +188,7 @@ input[type=password]:focus,input[type=text]:focus {
 
 input[type=submit] {
 	/* Cor de fundo do botão alterada para cor de destaque */
-	background: #ffa200; /* Cor de destaque */
+	background: #0F66EB; /* Cor de destaque */
 	color: #fff;
 	border: 0;
 	cursor: pointer;
@@ -198,7 +204,7 @@ input[type=submit] {
 
 input[type=submit]:focus,input[type=submit]:hover {
 	/* Cor do botão ao passar o mouse */
-	background: #e68a00; /* Cor de destaque escurecida para hover */
+	background: #2a7bf3; /* Cor de destaque escurecida para hover */
 }
 
 table {
@@ -274,3 +280,25 @@ table td:first-child {
 		font-size: 14px!important;
 	}
 }
+
+
+.desktop-logo {
+	display: block; /* Mostra no desktop */
+  }
+  
+  .mobile-logo {
+	display: none; /* Oculta no desktop */
+	max-width: 350px; /* Ajuste conforme necessário */
+	margin: 0 auto;
+  }
+  
+  /* Exibir a logo aleatória apenas no mobile */
+  @media only screen and (max-width: 575px) {
+	.desktop-logo {
+	  display: none; /* Esconde a logo fixa */
+	}
+	.mobile-logo {
+	  display: block; /* Mostra a logo aleatória */
+	}
+  }
+  

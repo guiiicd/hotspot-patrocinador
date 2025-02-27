@@ -6,81 +6,77 @@
     <meta http-equiv="expires" content="-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Global Informática - Login</title>
+    <!-- Personalize o título da página -->
+    <title>EMPRESA</title>
     <link rel="stylesheet" href="css/style.css" />
-
-    <script>
-      // Função para selecionar uma imagem aleatória entre as três opções
-      function loadImage() {
-        var images = ['ad1.png', 'ad2.png', 'ad3.png']; // Nomes das imagens
-        var randomIndex = Math.floor(Math.random() * images.length); // Seleciona uma imagem aleatória
-        document.getElementById('adImage').src = 'img/' + images[randomIndex]; // Atribui a imagem ao elemento
-      }
-    </script>
-
-    <style>
-      /* Definir o estilo para centralizar a imagem e ajustá-la ao tamanho da tela */
-      .ad-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Faz com que a imagem ocupe toda a altura da tela */
-        text-align: center;
-      }
-
-      .ad-image {
-        max-width: 100%;
-        height: auto; /* Mantém a proporção da imagem */
-        max-height: 80%; /* Limita a altura da imagem a 80% da tela */
-      }
-
-      .ad-text {
-        font-size: 16px; /* Texto menor */
-        color: #b0b0b0; /* Cor suave para o texto */
-        margin-bottom: 20px;
-        font-weight: 400; /* Font-weight menor para deixar o texto mais discreto */
-      }
-
-      /* Estilo para o botão de conectar */
-      .connect-button {
-        background-color: #ffa200;
-        color: #fff;
-        font-size: 18px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        width: 100%;
-        max-width: 250px;
-        margin-top: 20px;
-      }
-
-      .connect-button:hover {
-        background-color: #e68a00;
-      }
-    </style>
   </head>
 
-  <body onload="loadImage()">
-    <div class="ad-container">
-      <!-- Texto acima da imagem, alterado para informar que a internet está sendo disponibilizada pela empresa -->
-      <p class="ad-text">A internet está sendo disponibilizada pela Global Informática.</p>
+  <body>
+    <div class="ie-fixMinHeight">
+      <div class="main">
+        <div class="wrap animated fadeIn">
+          
+          <div class="logo-container">
+            <!-- Logo da empresa (só aparece no desktop) -->
+            <img class="logo desktop-logo" src="img/logo.png" alt="EMPRESA" />
+          
+            <!-- Logo patrocinador (só aparece no mobile) -->
+            <img class="logo mobile-logo" id="patrocinador" src="" alt="Patrocinador" />
+          </div>
+          
+          <!-- Personalize a mensagem de boas-vindas -->
+          <h1>Bem-vindo à<br />EMPRESA</h1>
 
-      <!-- Imagem do anúncio aleatório -->
-      <img id="adImage" src="" alt="Publicidade" class="ad-image" />
+          <form name="login" action="$(link-login-only)" method="post">
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
 
-      <!-- Botão de Conectar -->
-      <form name="login" action="$(link-login-only)" method="post">
-        <input type="hidden" name="username" value="global" /> <!-- Substitua 'usuario_definido_aqui' com o nome do usuário -->
-        <input type="hidden" name="password" value="global" /> <!-- Substitua 'senha_definida_aqui' com a senha -->
-        <input type="submit" value="Conectar" class="connect-button" />
-      </form>
+            <!-- Personalize o campo de usuário -->
+            <label>
+              <input
+                name="username"
+                type="hidden"
+                value="global"
+              /> <!-- Altere o campo value para o usuário padrão do hotspot -->
+            </label>
 
-      <!-- Texto informativo -->
-      <p class="info bt">
-        Você está conectando na rede da Global Informática
-      </p>
+            <!-- Personalize o campo de senha -->
+            <label>
+              <input
+                name="password"
+                type="hidden"
+                value="global"
+              /> <!-- Altere o campo value para a senha padrão do hotspot -->
+            </label>
+
+            <!-- Botão de envio, personalizável caso queira alterar o texto -->
+            <input type="submit" value="Conectar" />
+          </form>
+
+          <!-- Personalize a mensagem de rede -->
+          <p class="info bt">
+            Você está conectando na rede da EMPRESA
+          </p>
+        </div>
+      </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const logos = [
+          "img/ad1.png",
+          "img/ad2.png",
+          "img/ad3.png"
+        ];
+    
+        // Escolhe uma logo aleatória
+        const patrocinadorAleatorio = logos[Math.floor(Math.random() * logos.length)];
+    
+        // Define a logo no elemento HTML
+        document.getElementById("patrocinador").src = patrocinadorAleatorio;
+      });
+    </script>
+    
+
   </body>
 </html>
